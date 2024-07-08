@@ -26,6 +26,7 @@ export const generateCsrfToken = (req, res, next) => {
     secure: true,
     sameSite: "strict",
   });
+ 
   res.locals.state = state;
   res.locals.codeChallenge = codeChallenge;
   next();
@@ -37,7 +38,7 @@ export const verifyCsrfToken = (req, res, next) => {
   if (!token) return res.status(403).send("CSRF token missing");
 
   jwt.verify(token, tokenSecret, (err, decoded) => {
-    if (err) return res.status(403).send("Invalid CSRF token");
+    if (err) return res.status(403).send("Expired CSRF token");
     if (req.body.state !== decoded.state)
       return res.status(403).send("Invalid state parameter");
     if (!tokens.verify(csrfSecret, decoded.csrfToken))

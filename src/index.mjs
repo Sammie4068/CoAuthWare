@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Apply CSRF protection and generate CSRF tokens, state, and PKCE challenge
-app.get("/", generateCsrfToken, (req, res) => {
+app.get("/auth", generateCsrfToken, (req, res) => {
   res.status(200).json({ state: res.locals.state });
 });
 

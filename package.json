@@ -1,10 +1,11 @@
 {
   "name": "coauthware",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Middleware for CSRF protection in OAuth 2.0 implementations",
   "main": "src/index.mjs",
   "scripts": {
-    "test": "mocha 'test/**/*.test.mjs'"
+    "test": "mocha 'test/**/*.test.mjs'",
+    "dev": "nodemon src/index.mjs"
   },
   "keywords": [],
   "author": "Okoro Samuel",
@@ -14,7 +15,8 @@
     "csrf": "^3.1.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.4"
   },
   "devDependencies": {
     "chai": "^5.1.1",
